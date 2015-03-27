@@ -1,0 +1,98 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_layout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#ffffff">
+        <ImageView
+            android:id="@+id/backArrow_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8.0dip"
+            android:layout_gravity="center_vertical"
+            android:onClick="doBack"
+            android:src="@drawable/prev_btn_normal" />
+
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8.0dip"
+            android:layout_alignParentRight="true"
+            android:onClick="doBack"
+            android:src="@drawable/ic_action_favorite_off_normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8.0dip"
+            android:layout_gravity="center_vertical"
+            android:onClick="doBack"
+            android:layout_toLeftOf="@id/star"
+            android:src="@drawable/ic_action_share_normal" />
+
+    </RelativeLayout>
+
+    <com.brcorner.ddinaping.view.DianPingDetail.StickyScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/head_imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/item_img1"
+                    android:scaleType="centerCrop" />
+
+                <include
+                    android:id="@+id/buy"
+                    layout="@layout/buy_layout" />
+
+                <ImageView
+                    android:id="@+id/item_content1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dianping_content"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/item_content2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dianping_content"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/item_content3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dianping_content"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+            <include
+                android:id="@+id/top_buy_layout"
+                layout="@layout/buy_layout" />
+        </FrameLayout>
+    </com.brcorner.ddinaping.view.DianPingDetail.StickyScrollView>
+
+</LinearLayout>

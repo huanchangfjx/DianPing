@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/title_bar_style" >
+
+    <RelativeLayout
+        android:id="@+id/back_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:onClick="doBack" >
+
+        <ImageView
+            android:id="@+id/backArrow_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8.0dip"
+            android:clickable="true"
+            android:onClick="doBack"
+            android:src="@drawable/prev_btn_normal" />
+
+
+
+        <TextView
+            android:id="@+id/backText_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/backArrow_image"
+            android:singleLine="true"
+            android:textColor="#ff696969"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户消息"
+        android:textSize="22sp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

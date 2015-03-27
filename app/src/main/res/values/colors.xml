@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_orange">#FF6633</color>
+    <color name="orange">#ff7900</color>
+    <color name="white">#ffffff</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="tl_pull_bg">#ffe5e5e5</color>
+
+    <color name="tl_pull_text">#ff808080</color>
+
+    <color name="light_grey">#7F7F7F</color>
+    <color name="deep_grey">#969696</color>
+    <color name="deep_orange">#F05725</color>
+    <color name="simple_gray">#D2D2D2</color>
+
+    <color name="switch_toggle_bg_current_off">#ffff6d00</color>
+    <color name="switch_toggle_bg_current_pressed">#fffd7f22</color>
+    <color name="switch_toggle_bg_other_off">#ffffffff</color>
+    <color name="switch_toggle_bg_other_pressed">#ffe5e5e5</color>
+    <color name="switch_toggle_frame">#ffdcdcdc</color>
+    <color name="main_list_subtitle_bg">#ffe1e1e1</color>
+    <color name="setting_list_title_text">#ff757575</color>
+    <color name="tl_text_gray_dark">#ff010101</color>
+    <color name="tl_bg">#ffffffff</color>
+    <color name="common_bg">#f9f9f9</color>
+
+</resources>

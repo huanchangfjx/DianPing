@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+
+    <!--<com.brcorner.ddinaping.view.DianPingPullRefresh.PullToRefreshView-->
+        <!--android:id="@+id/pull"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<ScrollView-->
+            <!--android:id="@+id/scroll"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" >-->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/srollbtn_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="180dp" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/dian_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"></LinearLayout>
+                </RelativeLayout>
+
+                <!--<ListView-->
+                    <!--android:id="@+id/list_view"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"></ListView>-->
+
+
+            </LinearLayout>
+        <!--</ScrollView>-->
+    <!--</com.brcorner.ddinaping.view.DianPingPullRefresh.PullToRefreshView>-->
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:padding="5dp"
+    android:background="@color/common_bg"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/itemimg_imageview"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:src="@drawable/item_img1"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1">
+            <TextView
+                android:id="@+id/itemname_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="咖啡陪你Caffe Bene"/>
+            <TextView
+                android:id="@+id/itemcontent_textview"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/itemname_textview"
+                android:textSize="10sp"
+                android:text="[16店通用]代金券可叠加，不限时段通用，免费wifi"/>
+        <TextView
+            android:id="@+id/itemprice_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/itemcontent_textview"
+            android:text="￥35"/>
+        <TextView
+            android:id="@+id/sellednum_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_below="@id/itemcontent_textview"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:text="已售1734"/>
+        </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.brcorner.ddinaping.view.DianPingSlidMenu.SlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_menu"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ddinaping="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    ddinaping:leftPadding="100dp" >
+
+    <com.brcorner.ddinaping.view.DianPingSlidMenu.MyLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/title_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff">
+                <ImageView
+                    android:id="@+id/backArrow_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8.0dip"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="true"
+                    android:onClick="doBack"
+                    android:src="@drawable/prev_btn_normal" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/tuan_search_bg"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:drawableLeft="@drawable/navibar_search_icon_search"
+                        android:text="请输入搜索内容"
+                        android:textColor="@color/deep_grey"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="12dp"
+                    android:src="@drawable/list_icon_filter"
+                    android:textColor="@color/light_orange"
+                    android:onClick="toggleMenu"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/middle_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_ll" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tuan_tab_linear_background"
+                    android:paddingBottom="0.5dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0.5dp"
+                    android:paddingTop="0dp" >
+
+                    <TextView
+                        android:id="@+id/Shoplist_title_textbtn1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/my_tab_background"
+                        android:drawableRight="@drawable/ic_arrow_down_black"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text="全部地区"
+                        android:textColor="#666666" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tuan_tab_linear_background"
+                    android:paddingBottom="0.5dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0.5dp"
+                    android:paddingTop="0dp" >
+
+                    <TextView
+                        android:id="@+id/Shoplist_title_textbtn2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/my_tab_background"
+                        android:drawableRight="@drawable/ic_arrow_down_black"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text="美食"
+                        android:textColor="#666666" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tuan_tab_linear_background"
+                    android:paddingBottom="0.5dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0.5dp"
+                    android:paddingTop="0dp" >
+
+                    <TextView
+                        android:id="@+id/Shoplist_title_textbtn3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/my_tab_background"
+                        android:drawableRight="@drawable/ic_arrow_down_black"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text="默认排序"
+                        android:textColor="#666666" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/ShopListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/middle_ll" />
+
+            <ListView
+                android:id="@+id/Shoplist_toplist"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_below="@id/title_ll"
+                android:background="#f4f4f4"
+                android:divider="@null"
+                android:padding="10dp"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/Shoplist_threelist"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_below="@id/middle_ll"
+                android:background="#ffffff"
+                android:divider="@null"
+                android:padding="3dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/Shoplist_mainlist2"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_below="@id/middle_ll"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ListView
+                    android:id="@+id/Shoplist_onelist2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:background="#F4F4F4"
+                    android:divider="@null"
+                    android:scrollbars="none" />
+
+                <ListView
+                    android:id="@+id/Shoplist_twolist2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="17"
+                    android:background="#FFFFFF"
+                    android:divider="@null"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Shoplist_mainlist1"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_below="@id/middle_ll"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ListView
+                    android:id="@+id/Shoplist_onelist1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:background="#F4F4F4"
+                    android:divider="@null"
+
+                    android:scrollbars="none" />
+
+                <ListView
+                    android:id="@+id/Shoplist_twolist1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="17"
+                    android:background="#FFFFFF"
+                    android:divider="@null"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/layout_menu"
+            layout="@layout/layout_menu" />
+    </com.brcorner.ddinaping.view.DianPingSlidMenu.MyLinearLayout>
+
+</com.brcorner.ddinaping.view.DianPingSlidMenu.SlidingMenu>

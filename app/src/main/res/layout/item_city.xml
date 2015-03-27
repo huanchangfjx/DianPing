@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff8f8f8"
+    android:orientation="vertical" >
+
+
+
+    <TextView
+        android:id="@+id/title_textview"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/setting_list_title_height"
+        android:background="@color/main_list_subtitle_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/setting_list_sidepadding"
+        android:paddingRight="@dimen/setting_list_sidepadding"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="0.0"
+        android:shadowDy="1.0"
+        android:shadowRadius="1.0"
+        android:textColor="@color/setting_list_title_text"
+        android:textSize="@dimen/list_subtitle_text" />
+
+    <LinearLayout
+        android:id="@+id/linearall"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/tl_bg"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5.0dip" >
+
+
+        <TextView
+            android:id="@+id/cityname_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:paddingLeft="10dp"
+            android:textColor="@color/tl_text_gray_dark"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

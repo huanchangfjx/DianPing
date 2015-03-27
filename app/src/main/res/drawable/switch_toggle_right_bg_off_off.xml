@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/switch_toggle_frame" />
+            <corners android:topRightRadius="6.0dip" android:bottomRightRadius="6.0dip" />
+        </shape>
+    </item>
+    <item android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/switch_toggle_bg_other_off" />
+            <corners android:topRightRadius="5.0dip" android:bottomRightRadius="5.0dip" />
+        </shape>
+    </item>
+</layer-list>

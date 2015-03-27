@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+    <include android:id="@+id/head_rl" layout="@layout/section_common_head"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#fff8f8f8"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+                    <ListView
+                        android:id="@+id/invite_list"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+
+                    <ListView
+                        android:id="@+id/index_list"
+                        android:layout_width="25dip"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:visibility="gone" >
+                    </ListView>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <com.brcorner.ddinaping.view.DianPingArea.SideBar
+            android:id="@+id/sideBar"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:background="#00000000" />
+
+    </FrameLayout>
+
+
+
+</LinearLayout>
