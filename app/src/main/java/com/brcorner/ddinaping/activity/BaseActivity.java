@@ -9,7 +9,7 @@ import android.view.Window;
 import com.brcorner.ddinaping.utils.LogUtils;
 
 /**
- * Created by Justin on 2015/3/9.
+ * 基类 用于打印日志以及定义抽象方法
  */
 public abstract class BaseActivity extends Activity {
 

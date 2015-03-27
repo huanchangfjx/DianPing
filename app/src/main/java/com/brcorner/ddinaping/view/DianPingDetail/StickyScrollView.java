@@ -5,9 +5,6 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 /**
  * @blog http://blog.csdn.net/xiaanming
- *
- * @author xiaanming
- *
  */
 public class StickyScrollView extends ScrollView {
     private OnScrollListener onScrollListener;
@@ -42,16 +39,8 @@ public class StickyScrollView extends ScrollView {
         }
     }
 
-
-
-
-
     /**
-     *
      * 滚动的回调接口
-     *
-     * @author xiaanming
-     *
      */
     public interface OnScrollListener{
         /**
@@ -61,7 +50,5 @@ public class StickyScrollView extends ScrollView {
          */
         public void onScroll(int scrollY);
     }
-
-
 
 }

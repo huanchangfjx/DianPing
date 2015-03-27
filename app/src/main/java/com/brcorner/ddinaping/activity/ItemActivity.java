@@ -19,6 +19,9 @@ import com.brcorner.ddinaping.utils.DeviceParamsUtils;
 import com.brcorner.ddinaping.utils.ImageUtils;
 import com.brcorner.ddinaping.view.DianPingDetail.StickyScrollView;
 
+/**
+ * 商品详情页面
+ */
 public class ItemActivity extends BaseActivity  implements StickyScrollView.OnScrollListener {
 
     /**

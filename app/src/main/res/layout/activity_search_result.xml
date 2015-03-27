@@ -66,6 +66,9 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
+
+
+
             <LinearLayout
                 android:id="@+id/middle_ll"
                 android:layout_width="match_parent"
@@ -83,9 +86,11 @@
                     android:paddingTop="0dp" >
 
                     <TextView
-                        android:id="@+id/Shoplist_title_textbtn1"
+                        android:id="@+id/shoplist_title_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:onClick="doClick"
                         android:background="@drawable/my_tab_background"
                         android:drawableRight="@drawable/ic_arrow_down_black"
                         android:gravity="center_horizontal"
@@ -106,7 +111,7 @@
                     android:paddingTop="0dp" >
 
                     <TextView
-                        android:id="@+id/Shoplist_title_textbtn2"
+                        android:id="@+id/shoplist_title_textview2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/my_tab_background"
@@ -114,6 +119,8 @@
                         android:gravity="center_horizontal"
                         android:padding="10dp"
                         android:singleLine="true"
+                        android:clickable="true"
+                        android:onClick="doClick"
                         android:text="美食"
                         android:textColor="#666666" />
                 </LinearLayout>
@@ -129,7 +136,7 @@
                     android:paddingTop="0dp" >
 
                     <TextView
-                        android:id="@+id/Shoplist_title_textbtn3"
+                        android:id="@+id/shoplist_title_textview3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/my_tab_background"
@@ -137,29 +144,21 @@
                         android:gravity="center_horizontal"
                         android:padding="10dp"
                         android:singleLine="true"
+                        android:clickable="true"
+                        android:onClick="doClick"
                         android:text="默认排序"
                         android:textColor="#666666" />
                 </LinearLayout>
             </LinearLayout>
 
             <ListView
-                android:id="@+id/ShopListView"
+                android:id="@+id/shop_listview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/middle_ll" />
 
             <ListView
-                android:id="@+id/Shoplist_toplist"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:layout_below="@id/title_ll"
-                android:background="#f4f4f4"
-                android:divider="@null"
-                android:padding="10dp"
-                android:visibility="gone" />
-
-            <ListView
-                android:id="@+id/Shoplist_threelist"
+                android:id="@+id/head_third_listview"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:layout_below="@id/middle_ll"
@@ -169,7 +168,7 @@
                 android:visibility="gone" />
 
             <LinearLayout
-                android:id="@+id/Shoplist_mainlist2"
+                android:id="@+id/head_second_ll"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:layout_below="@id/middle_ll"
@@ -177,7 +176,7 @@
                 android:visibility="gone" >
 
                 <ListView
-                    android:id="@+id/Shoplist_onelist2"
+                    android:id="@+id/head_second_left_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="20"
@@ -186,7 +185,7 @@
                     android:scrollbars="none" />
 
                 <ListView
-                    android:id="@+id/Shoplist_twolist2"
+                    android:id="@+id/head_second_right_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="17"
@@ -196,7 +195,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Shoplist_mainlist1"
+                android:id="@+id/head_first_ll"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:layout_below="@id/middle_ll"
@@ -204,7 +203,7 @@
                 android:visibility="gone" >
 
                 <ListView
-                    android:id="@+id/Shoplist_onelist1"
+                    android:id="@+id/head_first_left_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="20"
@@ -214,7 +213,7 @@
                     android:scrollbars="none" />
 
                 <ListView
-                    android:id="@+id/Shoplist_twolist1"
+                    android:id="@+id/head_first_right_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="17"

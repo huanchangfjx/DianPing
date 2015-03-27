@@ -27,7 +27,6 @@ import java.lang.reflect.Field;
 
 public class MessageActivity extends FragmentActivity implements UserMessageFragment.OnFragmentInteractionListener, SysMessageFragment.OnFragmentInteractionListener, BroadCastFragment.OnFragmentInteractionListener {
 
-
     private UserMessageFragment userMessageFragment;
     private SysMessageFragment sysMessageFragment;
     private BroadCastFragment broadCastFragment;
@@ -152,8 +151,6 @@ public class MessageActivity extends FragmentActivity implements UserMessageFrag
             center_text.setText(titles[2]);
         }
     }
-
-
 
     private void setOverflowShowingAlways() {
         try {
