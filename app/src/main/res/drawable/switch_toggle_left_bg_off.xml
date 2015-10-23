@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="false" android:drawable="@drawable/switch_toggle_left_bg_off_off" />
-    <item android:state_pressed="true" android:drawable="@drawable/switch_toggle_left_bg_off_pressed" />
-    <item android:state_focused="true" android:drawable="@drawable/switch_toggle_left_bg_off_pressed" />
-    <item android:drawable="@drawable/switch_toggle_left_bg_off_off" />
-</selector>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape android:shape="rectangle">
+      <solid android:color="@color/city_head_orange" />
+      <corners android:topLeftRadius="6.0dip" android:bottomLeftRadius="6.0dip" />
+    </shape>
+  </item>
+  <item android:left="1.0dip" android:top="1.0dip" android:bottom="1.0dip">
+    <shape android:shape="rectangle">
+      <solid android:color="@color/switch_toggle_bg_other_off" />
+      <corners android:topLeftRadius="6.0dip" android:bottomLeftRadius="6.0dip" />
+    </shape>
+  </item>
+</layer-list>

@@ -6,12 +6,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:background="@drawable/switch_bg"
-         >
+        >
 
         <RadioGroup
             android:id="@+id/select_rg"
-            android:layout_width="120dp"
-            android:layout_height="32.0dp"
+            android:layout_width="145dp"
+            android:layout_height="28dp"
             android:orientation="horizontal" >
 
             <RadioButton
@@ -24,8 +24,7 @@
                 android:checked="true"
                 android:gravity="center"
                 android:text="全部"
-                android:textColor="@android:color/white"
-                android:textSize="15.0sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <RadioButton
@@ -37,8 +36,7 @@
                 android:button="@null"
                 android:gravity="center"
                 android:text="海外"
-                android:textColor="#ffff6d00"
-                android:textSize="15.0sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </RadioGroup>
     </LinearLayout>

@@ -22,7 +22,6 @@ import com.brcorner.ddinaping.model.CityBean;
 
 public class CityListAdapter extends ArrayAdapter<CityBean> implements SectionIndexer {
 	private int resourceId;
-
 	private List<CityBean> list;
 	private Activity activity;
 	public CityListAdapter(Context context, int resource,
