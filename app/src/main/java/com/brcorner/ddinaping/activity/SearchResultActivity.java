@@ -1,5 +1,6 @@
 package com.brcorner.ddinaping.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.brcorner.ddinaping.R;
-import com.brcorner.ddinaping.adapter.ItemListAdapter;
+import com.brcorner.ddinaping.adapter.IndexListAdapter;
 import com.brcorner.ddinaping.adapter.SearchMainAdapter;
 import com.brcorner.ddinaping.adapter.SearchMoreAdapter;
 import com.brcorner.ddinaping.model.DateConstant;
@@ -28,7 +29,7 @@ import java.util.Map;
 /**
  * 寻找效果 包含左右滑动以及下拉菜单功能
  */
-public class SearchResultActivity extends BaseActivity{
+public class SearchResultActivity extends Activity{
 
     private ListView head_third_listview,
             head_first_right_listview, head_second_right_listview, head_first_left_listview,
@@ -49,14 +50,13 @@ public class SearchResultActivity extends BaseActivity{
     private SlidingMenu slidingMenu;
 
 
-    @Override
     public void initView() {
         menu_imageview1 = (ImageView) findViewById(R.id.menu_imageview1);
         menu_imageview2 = (ImageView) findViewById(R.id.menu_imageview2);
         menu_imageview3 = (ImageView) findViewById(R.id.menu_imageview3);
         menu_imageview4 = (ImageView) findViewById(R.id.menu_imageview4);
 //        rangeSeekBar = (RangeSeekBar) findViewById(R.id.rangeSeekBar);
-//        slidingMenu = (SlidingMenu) findViewById(R.id.id_menu);
+        slidingMenu = (SlidingMenu) findViewById(R.id.id_menu);
 //        rangeSeekBar.setOnRangeChangedListener(new RangeSeekBar.OnRangeChangedListener() {
 //            @Override
 //            public void onRangeChanged(float lowerRange, float upperRange) {
@@ -102,13 +102,12 @@ public class SearchResultActivity extends BaseActivity{
         // -----------------------------------------------------------------
         List<ItemBean> goodsList = DateConstant.getGoodsList();
 
-        ItemListAdapter adapter = new ItemListAdapter(this, R.layout.item_good, goodsList);
+        IndexListAdapter adapter = new IndexListAdapter(this, R.layout.item_good, goodsList);
         shop_listview.setAdapter(adapter);
 
         changeView();
     }
 
-    @Override
     public void changeView() {
         shop_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -388,6 +387,11 @@ public class SearchResultActivity extends BaseActivity{
             }
         }
         return false;
+    }
+
+    public void doBack(View view)
+    {
+        this.finish();
     }
 
 }

@@ -8,8 +8,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-import com.brcorner.ddinaping.R;
 
+import com.brcorner.ddinaping.R;
+import com.brcorner.ddinaping.utils.DensityUtils;
 
 public class EatProgressBar extends ProgressBar {
 	/**
@@ -28,19 +29,25 @@ public class EatProgressBar extends ProgressBar {
 	 * 图片
 	 */
 	private Bitmap bitmap;
+	
+	private Context context;
 
 	public EatProgressBar(Context context) {
 		this(context, null);
+		this.context = context;
 	}
 
 	public EatProgressBar(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
+		this.context = context;
 	}
 
 	public EatProgressBar(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		this.context = context;
 		bitmap = BitmapFactory.decodeResource(getResources(),
 				R.drawable.dropdown_anim_00);
+		bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 20), DensityUtils.dp2px(context, 20), true);
 		paint = new Paint();
 	}
 
@@ -57,35 +64,45 @@ public class EatProgressBar extends ProgressBar {
 		if (progress <= company) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_01);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 20), DensityUtils.dp2px(context, 20), true);
 		} else if (progress > company && progress <= company * 2) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_02);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 25), DensityUtils.dp2px(context, 25), true);
 		} else if (progress > company * 2 && progress <= company * 3) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_03);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 30), DensityUtils.dp2px(context, 30), true);
 		} else if (progress > company * 3 && progress <= company * 4) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_04);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 35), DensityUtils.dp2px(context, 35), true);
 		} else if (progress > company * 4 && progress <= company * 5) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_05);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 40), DensityUtils.dp2px(context, 40), true);
 		} else if (progress > company * 5 && progress <= company * 6) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_06);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 45), DensityUtils.dp2px(context, 45), true);
 		} else if (progress > company * 6 && progress <= company * 7) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_07);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 50), DensityUtils.dp2px(context, 50), true);
 		} else if (progress > company * 7 && progress <= company * 8) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_08);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 55), DensityUtils.dp2px(context, 55), true);
 		} else if (progress > company * 8 && progress <= company * 9) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_09);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 60), DensityUtils.dp2px(context, 60), true);
 		} else if (progress > company * 9 && progress <= max) {
 			bitmap = BitmapFactory.decodeResource(getResources(),
 					R.drawable.dropdown_anim_10);
+			bitmap = Bitmap.createScaledBitmap(bitmap, DensityUtils.dp2px(context, 65), DensityUtils.dp2px(context, 65), true);
 		}
-		canvas.drawBitmap(bitmap, getWidth() / 2 - bitmap.getWidth() / 2, 0,
+		canvas.drawBitmap(bitmap, getWidth() / 2 - bitmap.getWidth() / 2, getHeight() / 2 - bitmap.getHeight() / 2,
 				paint);
 	}
 
@@ -95,7 +112,7 @@ public class EatProgressBar extends ProgressBar {
 		/**
 		 * 设置控件大小
 		 */
-		setMeasuredDimension(bitmap.getWidth(), bitmap.getHeight());
+		setMeasuredDimension(DensityUtils.dp2px(context, 70), DensityUtils.dp2px(context, 70));
 	}
 
 	/**

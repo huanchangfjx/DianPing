@@ -12,11 +12,11 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/goSlide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:orientation="vertical"
             android:layout_weight="1">
 
@@ -36,8 +36,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:orientation="vertical"
             android:layout_weight="1">
 
@@ -57,8 +55,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:orientation="vertical"
             android:layout_weight="1">
 
@@ -78,8 +74,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:orientation="vertical"
             android:layout_weight="1">
 
@@ -107,8 +101,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:orientation="vertical"
             android:layout_weight="1">
 
@@ -128,8 +120,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:orientation="vertical"
             android:layout_weight="1">
 
@@ -150,8 +140,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:layout_weight="1">
 
             <ImageView
@@ -170,8 +158,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:clickable="true"
-            android:onClick="intentSearchResultActivity"
             android:orientation="vertical"
             android:layout_weight="1">
 

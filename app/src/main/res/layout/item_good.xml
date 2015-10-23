@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:padding="5dp"
-    android:background="@color/common_bg"
+    android:background="#f9f9f9"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/itemimg_imageview"
+        android:id="@+id/itemImg_image"
         android:layout_width="150dip"
         android:layout_height="wrap_content"
         android:src="@drawable/item_img1"/>
@@ -17,36 +17,37 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_weight="1">
-            <TextView
-                android:id="@+id/itemname_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="咖啡陪你Caffe Bene"/>
-            <TextView
-                android:id="@+id/itemcontent_textview"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="3dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/itemname_textview"
-                android:textSize="10sp"
-                android:text="[16店通用]代金券可叠加，不限时段通用，免费wifi"/>
         <TextView
-            android:id="@+id/itemprice_textview"
+            android:id="@+id/itemName_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:text="咖啡陪你Caffe Bene"/>
+        <TextView
+            android:id="@+id/itemContent_text"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemName_text"
+            android:textSize="10sp"
+            android:text="[16店通用]代金券可叠加，不限时段通用，免费wifi"/>
+        <TextView
+            android:id="@+id/itemPrice_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_marginTop="3dp"
-            android:layout_below="@id/itemcontent_textview"
+            android:layout_below="@id/itemContent_text"
             android:text="￥35"/>
         <TextView
-            android:id="@+id/sellednum_textview"
+            android:id="@+id/selledNum_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"
-            android:layout_below="@id/itemcontent_textview"
+            android:layout_below="@id/itemContent_text"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:text="已售1734"/>
-        </RelativeLayout>
+    </RelativeLayout>
 </LinearLayout>

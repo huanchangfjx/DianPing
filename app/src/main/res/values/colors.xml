@@ -25,4 +25,11 @@
     <color name="tl_bg">#ffffffff</color>
     <color name="common_bg">#f9f9f9</color>
 
+    <color name="city_head_orange">#fe6732</color>
+    <color name="city_text_color">#969696</color>
+
+    <color name="city_color_black">#585858</color>
+
+    <color name="small_light_grey">#f0f0f0</color>
+
 </resources>

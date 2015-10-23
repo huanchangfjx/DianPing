@@ -3,28 +3,24 @@ package com.brcorner.ddinaping.view.DianPingArea;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.HeaderViewListAdapter;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
-import android.widget.TextView;
 
 import com.brcorner.ddinaping.R;
-import com.brcorner.ddinaping.application.MyApplication;
 import com.brcorner.ddinaping.model.CityBean;
 import com.brcorner.ddinaping.utils.DensityUtils;
-import com.brcorner.ddinaping.utils.DeviceParamsUtils;
 
 /**
- *选择城市右边字母bar
+ * 选择城市右边字母bar
  */
 
 public class SideBar extends View {
@@ -34,13 +30,10 @@ public class SideBar extends View {
 	private float m_nItemHeight;
 	private int textSize;
 	private Context context;
-	private List<CityBean> friendList;
-    private int actionbarHeight;
 
 	public SideBar(Context context) {
 		super(context);
 		this.context = context;
-
 	}
 
 	public SideBar(Context context, AttributeSet attrs) {
@@ -48,80 +41,75 @@ public class SideBar extends View {
 		this.context = context;
 
 	}
-	
-	
+
 	public SideBar(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 
 	}
-	
-	public SideBar(Context context,ArrayList<CityBean> list,int actionbarHeight) {
+
+	public SideBar(Context context, ArrayList<CityBean> list,
+				   int sideBarHeight) {
 		super(context);
 		this.context = context;
-//		this.friendList = list;
-        this.actionbarHeight = actionbarHeight;
 	}
-	
-	private void init() {
+
+
+	private void changeView(List<CityBean> cityList,int sideBarHeight) {
 		index = new ArrayList<String>();
-		textSize = DensityUtils.sp2px(context, 12);
-		for (CityBean cityBean : friendList) {
-			if(cityBean.getIndex() != null)
-			{
+		index.add("热门");
+		textSize = DensityUtils.sp2px(context, 10);
+		for (CityBean cityBean : cityList) {
+			if (cityBean.getIndex() != null) {
 				index.add(cityBean.getIndex());
 			}
 		}
 		int indexSize = 1;
-		if(index.size() != 0)
-		{
-			indexSize = index.size();		}
-		m_nItemHeight = (DeviceParamsUtils.getScreenHeight() - 350)/indexSize;
-
-	}
-	
-	public void setParams(List<CityBean> list,int actionbarHeight)
-	{
-		this.friendList = list;
-        this.actionbarHeight = actionbarHeight;
-		init();
+		if (index.size() != 0) {
+			indexSize = index.size();
+		}
+		m_nItemHeight = sideBarHeight / indexSize;
 
 	}
 
-	
+	public void setParams(List<CityBean> listCity,int sideBarHeight) {
+		changeView(listCity, sideBarHeight);
+	}
 
 	public void setListView(ListView _list) {
 		list = _list;
-		sectionIndexter = (SectionIndexer) _list.getAdapter();
+		sectionIndexter = ((SectionIndexer) ((HeaderViewListAdapter)_list.getAdapter()).getWrappedAdapter());
 	}
-
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
 		super.onTouchEvent(event);
-		float i =  event.getY();
-        float idx = i / m_nItemHeight;
+		float i = event.getY();
+		float idx = i / m_nItemHeight;
 		if (idx >= index.size()) {
 			idx = index.size() - 1;
 		} else if (idx < 0) {
 			idx = 0;
 		}
-		if ((event.getAction() == MotionEvent.ACTION_DOWN
-				|| event.getAction() == MotionEvent.ACTION_MOVE) && index.size() > 0) {
-            this.setBackgroundResource(R.drawable.mm_text_bg_trans);
+		if ((event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE)
+				&& index.size() > 0) {
+			this.setBackgroundResource(R.drawable.mm_text_bg_trans);
 			if (sectionIndexter == null) {
-				sectionIndexter = (SectionIndexer) list.getAdapter();
+				sectionIndexter = ((SectionIndexer) ((HeaderViewListAdapter)list.getAdapter()).getWrappedAdapter());
 			}
-			int position = sectionIndexter.getPositionForSection(index.get((int)idx).charAt(0));
-			if (position == -1) {
-				return true;
-			}
-			list.setSelection(position);
+			int position = sectionIndexter.getPositionForSection(index.get(
+					(int) idx).charAt(0));
+//			if (position == -1) {
+//				list.setSelection(position + 1);
+//				return true;
+//			}
+			list.setSelection(position + 1);
 		} else {
-            this.setBackgroundColor(Color.parseColor("#00000000"));
+			this.setBackgroundColor(Color.parseColor("#00000000"));
 		}
 		return true;
 	}
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		Paint paint = new Paint();

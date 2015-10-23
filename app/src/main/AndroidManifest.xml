@@ -22,10 +22,6 @@
             android:label="@string/title_activity_start" >
         </activity>
         <activity
-            android:name=".activity.AreaActivity"
-            android:label="@string/title_activity_area" >
-        </activity>
-        <activity
             android:name=".activity.MessageActivity"
             android:label="@string/title_activity_message" >
         </activity>
@@ -46,7 +42,7 @@
             android:label="@string/title_activity_item" >
         </activity>
         <activity
-            android:name=".activity.BaseActivity"
+            android:name=".activity.ChooseCityActivity"
             android:label="@string/title_activity_item" >
         </activity>
 

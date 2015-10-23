@@ -55,7 +55,7 @@
             android:src="@drawable/findmain_mail_off" />
     </LinearLayout>
     
-   <com.brcorner.ddinaping.view.DianPingPullRefresh.PullToRefreshListView
+   <com.brcorner.ddinaping.view.DianPingPullRefresh.PullToRefreshView
         android:id="@+id/pull_refresh_list"
        android:layout_below="@id/head_ll"
         android:layout_width="fill_parent"

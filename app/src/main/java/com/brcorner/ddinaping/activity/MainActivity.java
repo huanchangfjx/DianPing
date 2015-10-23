@@ -1,8 +1,6 @@
 package com.brcorner.ddinaping.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -13,192 +11,163 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.brcorner.ddinaping.R;
-import com.brcorner.ddinaping.fragment.AccountFragment;
-import com.brcorner.ddinaping.fragment.DiscoverFragment;
-import com.brcorner.ddinaping.fragment.GroupBuyFragment;
+import com.brcorner.ddinaping.fragment.GroupFragment;
 import com.brcorner.ddinaping.fragment.IndexFragment;
-import com.brcorner.ddinaping.utils.LogUtils;
+import com.brcorner.ddinaping.fragment.MyFragment;
+import com.brcorner.ddinaping.fragment.SearchFragment;
 
-/**
- * 主类
- */
 
-public class MainActivity extends FragmentActivity implements IndexFragment.OnFragmentInteractionListener,GroupBuyFragment.OnFragmentInteractionListener,AccountFragment.OnFragmentInteractionListener,DiscoverFragment.OnFragmentInteractionListener {
+public class MainActivity extends FragmentActivity {
 
-    private ImageView index_image, groupbuy_image, discover_image, account_image;
-    private TextView index_text, groupbuy_text, discover_text, account_text;//四个底部标签
-    private AccountFragment accountFragment;
-    private DiscoverFragment discoverFragment;
-    private GroupBuyFragment groupBuyFragment;
+    //fragment 首页 团购 发现 我的
     private IndexFragment indexFragment;
+    private GroupFragment groupFragment;
+    private SearchFragment searchFragment;
+    private MyFragment myFragment;
+
     private FragmentManager fragmentManager;
-    private int selectIndex;
+
+    private ImageView index_image,group_image,search_image,my_image;
+    private TextView index_text,group_text,search_text,my_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        this.initView();
+        initViews();
+        fragmentManager = getSupportFragmentManager();
+        setTabSelection(R.id.index_rl);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(indexFragment != null)
-        {
-            String area =  this.getIntent().getStringExtra("areastr");
-            if(area != null)
-            {
-                indexFragment.refreshArea(area);
-            }
+    private void initViews()
+    {
+        index_image = (ImageView) findViewById(R.id.index_image);
+        group_image = (ImageView) findViewById(R.id.group_image);
+        search_image = (ImageView) findViewById(R.id.search_image);
+        my_image = (ImageView) findViewById(R.id.my_image);
+
+        index_text = (TextView) findViewById(R.id.index_text);
+        group_text = (TextView) findViewById(R.id.group_text);
+        search_text = (TextView) findViewById(R.id.search_text);
+        my_text = (TextView) findViewById(R.id.my_text);
+
+    }
+
+    public void doClick(View view)
+    {
+        switch (view.getId()) {
+            case R.id.index_rl:
+                setTabSelection(R.id.index_rl);
+                break;
+            case R.id.group_rl:
+                setTabSelection(R.id.group_rl);
+                break;
+            case R.id.search_rl:
+                setTabSelection(R.id.search_rl);
+                break;
+            case R.id.my_rl:
+                setTabSelection(R.id.my_rl);
+                break;
+            default:
+                break;
         }
     }
 
-    public void initView() {
-        fragmentManager = getSupportFragmentManager();
-        selectIndex = this.getIntent().getIntExtra("intentType", 0);
-        index_image = (ImageView) findViewById(R.id.index_image);
-        groupbuy_image = (ImageView) findViewById(R.id.groupbuy_image);
-        discover_image = (ImageView) findViewById(R.id.discover_image);
-        account_image = (ImageView) findViewById(R.id.account_image);
-        index_text = (TextView) findViewById(R.id.index_text);
-        groupbuy_text = (TextView) findViewById(R.id.groupbuy_text);
-        discover_text = (TextView) findViewById(R.id.discover_text);
-        account_text = (TextView) findViewById(R.id.account_text);
-        changeView();
-    }
-
-    public void changeView() {
-        setTabSelection(selectIndex);
-    }
-
-    /**
-     * 根据传入的index参数来设置选中的tab页。
-     *
-     * @param index 每个tab页对应的下标。0首页，1团购，2发现，3账户。
-     */
-    private void setTabSelection(int index) {
-        // 每次选中之前先清楚掉上次的选中状态
-        clearSelection();
-        // 开启一个Fragment事务
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        // 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
-        hideFragments(transaction);
-        switch (index) {
-            case 0:
+    private void setTabSelection(int layoutId)
+    {
+        clearTabSelection();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        hideFragment(fragmentTransaction);
+        switch (layoutId) {
+            case R.id.index_rl:
                 index_image.setImageResource(R.drawable.main_index_home_pressed);
                 index_text.setTextColor(Color.parseColor("#ff780f"));
-                if (indexFragment == null) {
-                    // 如果MessageFragment为空，则创建一个并添加到界面上
-                    indexFragment = IndexFragment.newInstance(null,null);
-                    transaction.add(R.id.content, indexFragment);
-                } else {
-                    // 如果MessageFragment不为空，则直接将它显示出来
-                    transaction.show(indexFragment);
+                if(indexFragment == null)
+                {
+                    indexFragment = new IndexFragment();
+                    fragmentTransaction.add(R.id.content_fl, indexFragment);
+                }
+                else
+                {
+                    fragmentTransaction.show(indexFragment);
                 }
                 break;
-            case 1:
-                groupbuy_image.setImageResource(R.drawable.main_index_tuan_pressed);
-                groupbuy_text.setTextColor(Color.parseColor("#ff780f"));
-                if (groupBuyFragment == null) {
-                    // 如果MessageFragment为空，则创建一个并添加到界面上
-                    groupBuyFragment = GroupBuyFragment.newInstance(null,null);
-                    transaction.add(R.id.content, groupBuyFragment);
-                } else {
-                    // 如果MessageFragment不为空，则直接将它显示出来
-                    transaction.show(groupBuyFragment);
+            case R.id.group_rl:
+                group_image.setImageResource(R.drawable.main_index_tuan_pressed);
+                group_text.setTextColor(Color.parseColor("#ff780f"));
+                if(groupFragment == null)
+                {
+                    groupFragment = new GroupFragment();
+                    fragmentTransaction.add(R.id.content_fl, groupFragment);
+                }
+                else
+                {
+                    fragmentTransaction.show(groupFragment);
                 }
                 break;
-            case 2:
-                discover_image.setImageResource(R.drawable.main_index_search_pressed);
-                discover_text.setTextColor(Color.parseColor("#ff780f"));
-                if (discoverFragment == null) {
-                    // 如果MessageFragment为空，则创建一个并添加到界面上
-                    discoverFragment = DiscoverFragment.newInstance(null,null);
-                    transaction.add(R.id.content, discoverFragment);
-                } else {
-                    // 如果MessageFragment不为空，则直接将它显示出来
-                    transaction.show(discoverFragment);
+            case R.id.search_rl:
+                search_image.setImageResource(R.drawable.main_index_search_pressed);
+                search_text.setTextColor(Color.parseColor("#ff780f"));
+                if(searchFragment == null)
+                {
+                    searchFragment = new SearchFragment();
+                    fragmentTransaction.add(R.id.content_fl, searchFragment);
+                }
+                else
+                {
+                    fragmentTransaction.show(searchFragment);
                 }
                 break;
-            case 3:
-                account_image.setImageResource(R.drawable.main_index_my_pressed);
-                account_text.setTextColor(Color.parseColor("#ff780f"));
-                if (accountFragment == null) {
-                    // 如果MessageFragment为空，则创建一个并添加到界面上
-                    accountFragment = AccountFragment.newInstance(null,null);
-                    transaction.add(R.id.content, accountFragment);
-                } else {
-                    // 如果MessageFragment不为空，则直接将它显示出来
-                    transaction.show(accountFragment);
+            case R.id.my_rl:
+                my_image.setImageResource(R.drawable.main_index_my_pressed);
+                my_text.setTextColor(Color.parseColor("#ff780f"));
+                if(myFragment == null)
+                {
+                    myFragment = new MyFragment();
+                    fragmentTransaction.add(R.id.content_fl, myFragment);
+                }
+                else
+                {
+                    fragmentTransaction.show(myFragment);
                 }
                 break;
             default:
                 break;
         }
-        transaction.commit();
+        fragmentTransaction.commit();
     }
 
-    /**
-     * 清除掉所有的选中状态。
-     */
-    private void clearSelection() {
-        index_image.setImageResource(R.drawable.main_index_home_normal);
-        index_text.setTextColor(Color.parseColor("#82858b"));
-        groupbuy_image.setImageResource(R.drawable.main_index_tuan_normal);
-        groupbuy_text.setTextColor(Color.parseColor("#82858b"));
-        discover_image.setImageResource(R.drawable.main_index_search_normal);
-        discover_text.setTextColor(Color.parseColor("#82858b"));
-        account_image.setImageResource(R.drawable.main_index_my_normal);
-        account_text.setTextColor(Color.parseColor("#82858b"));
-    }
-
-    /**
-     * 将所有的Fragment都置为隐藏状态。
-     *
-     * @param transaction 用于对Fragment执行操作的事务
-     */
-    private void hideFragments(FragmentTransaction transaction) {
-        if (indexFragment != null) {
-            transaction.hide(indexFragment);
-        }
-        if (groupBuyFragment != null) {
-            transaction.hide(groupBuyFragment);
-        }
-        if (discoverFragment != null) {
-            transaction.hide(discoverFragment);
-        }
-        if (accountFragment != null) {
-            transaction.hide(accountFragment);
-        }
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    public void intentSearchResultActivity(View view)
+    private void clearTabSelection()
     {
-        Intent intent = new Intent(this, SearchResultActivity.class);
-        this.startActivity(intent);
+        index_text.setTextColor(Color.parseColor("#82858b"));
+        index_image.setImageResource(R.drawable.main_index_home_normal);
+        group_text.setTextColor(Color.parseColor("#82858b"));
+        group_image.setImageResource(R.drawable.main_index_tuan_normal);
+        search_text.setTextColor(Color.parseColor("#82858b"));
+        search_image.setImageResource(R.drawable.main_index_search_normal);
+        my_text.setTextColor(Color.parseColor("#82858b"));
+        my_image.setImageResource(R.drawable.main_index_my_normal);
     }
 
-    public void doClick(View v) {
-        switch (v.getId()) {
-            case R.id.index_layout:
-                setTabSelection(0);
-                break;
-            case R.id.groupbuy_layout:
-                setTabSelection(1);
-                break;
-            case R.id.discover_layout:
-                setTabSelection(2);
-                break;
-            case R.id.account_layout:
-                setTabSelection(3);
-                break;
+    private void hideFragment(FragmentTransaction fragmentTransaction)
+    {
+        if(indexFragment != null)
+        {
+            fragmentTransaction.hide(indexFragment);
+        }
+        if(groupFragment != null)
+        {
+            fragmentTransaction.hide(groupFragment);
+        }
+        if(searchFragment != null)
+        {
+            fragmentTransaction.hide(searchFragment);
+        }
+        if(myFragment != null)
+        {
+            fragmentTransaction.hide(myFragment);
         }
     }
 }
